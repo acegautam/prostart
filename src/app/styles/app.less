@@ -1,0 +1,45 @@
+html, body{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+// Variables
+
+@page-width: 700px;
+@bg-color: #1e1e1e;
+// @bg-color: #15152b;
+
+@font-color: #c8c8c8;
+@color-accent: #007acc;
+@font-family: verdana, arial;
+@link-color: #eee;
+@white: #fff;
+@styles-base-url: "layout/";
+
+body{
+    background: @bg-color;
+    color: @font-color;
+    font-family: @font-family;
+    font-size: 12px;
+
+    display: flex;
+    flex-direction: column;
+
+    > .site-wrap.body{
+        flex-grow: 1;
+    }
+
+    > .site-wrap{
+        > header, > section, > footer{
+            max-width: @page-width;
+            margin: auto;
+        }
+    }
+}
+
+// imports (using interpolation)
+@import "@{styles-base-url}mixins";
+@import "@{styles-base-url}header";
+@import "@{styles-base-url}body";
+@import "@{styles-base-url}footer";

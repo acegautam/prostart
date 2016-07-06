@@ -1,0 +1,56 @@
+@header-background: lighten(@bg-color, 5%);
+@header-border: darken(@bg-color, 5%);
+
+.site-wrap.header{
+    background: @header-background;
+    border-bottom: 2px solid @header-border;
+
+    h1{
+        font-weight: normal;
+        margin: 0;
+        padding: 10px 0;
+        font-size: 20px;
+
+        strong{
+            color: #FF7B00;
+            font-weight: normal;
+            font-size: 14px;
+        }
+    }
+
+    nav{
+        display: flex;
+
+        > a {
+            display: block;
+            padding: 10px;
+            text-align: center;
+            text-decoration: none;
+            color: @link-color;
+
+            flex-basis: 0;
+            flex-grow: 1;
+            .top-radius(5px);
+
+            &.selected{
+                .highlight-tab(@header-background);
+                background: @header-border;
+                color: @white;
+                cursor: default;
+
+                &:hover{
+                    background: @header-border;
+                }
+            }
+
+            &:hover{
+                background: lighten(@color-accent, 10%);
+            }
+        }
+
+        &:after{
+            content: " ";
+            flex-grow: 8;
+        }
+    }
+}
